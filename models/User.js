@@ -21,14 +21,14 @@ const UserSchema = mongoose.Schema({
     },
     date:{
         type:Date,
-        default: Date.now
+        default: Date.now()
     },
     type:{
         type:String,
-        default:"jobSeeker"
+        default:'jobSeeker'
     }
     
 })
 
-module.exports = mongoose.moddel('user', UserSchema)
+module.exports = mongoose.model('user', UserSchema)
 
