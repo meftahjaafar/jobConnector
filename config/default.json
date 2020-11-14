@@ -1,3 +1,4 @@
 {
-    "MONGO_URI": "mongodb://localhost:27017/jobConnector"
+    "MONGO_URI": "mongodb://localhost:27017/jobConnector",
+    "SECRET_KEY": "dZ6hM5oB3yY0mW2a"
 }
