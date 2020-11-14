@@ -24,7 +24,8 @@ const UserSchema = mongoose.Schema({
         default: Date.now
     },
     type:{
-        type:String
+        type:String,
+        default:"jobSeeker"
     }
     
 })

@@ -18,6 +18,10 @@ app.get('/', (req, res) => {
 // @connect Database
 connectDB()
 
+// @Initialize middleware
+
+app.use(express.json({ extended : false }))
+
 //@ routes
 
 app.use('/api/users', require('./routes/api/users'))
