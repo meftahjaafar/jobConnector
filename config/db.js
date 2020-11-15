@@ -3,7 +3,7 @@ const config = require('config')
 
 // import DB Uri
 const db = config.get('MONGO_URI')
-const settings = {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+const settings = {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false  }
 
 
 // Asynchronus function : Database Connect
