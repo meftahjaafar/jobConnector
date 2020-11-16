@@ -320,4 +320,28 @@ router.delete('/education/:educ_id', auth, async(req, res) =>{
         })
 })
 
+// @route POST api/profile/experience/exp_id
+// @desc  Update an experience
+// @access private
+
+
+router.put('/education/:educ_id', auth, async (req, res) =>{
+  const newEduc = {}
+  if (req.body.school) newEduc.school = req.body.school;
+  if (req.body.degree) newEduc.degree = req.body.degree;
+  if (req.body.fieldofstudy) newEduc.fieldofstudy = req.body.fieldofstudy;
+  if (req.body.from) newEduc.from = req.body.from;
+  if (req.body.to) newEduc.to = req.body.to;
+  if (req.body.current) newEduc.current = req.body.current;
+  if (req.body.description) newEduc.description = req.body.description;
+ let profile =  await Profile.findOne({user: req.user.id})
+ let subEducatuion = profile.education.id(req.params.educ_id)
+ subEducatuion.set(newEduc)
+ profile.save().then(function(saveEducation){
+      res.send(saveEducation)
+    }).catch(function(err){
+      res.status(500).send(err)
+    })
+})
+
 module.exports = router;
