@@ -31,7 +31,7 @@ router.post('/', [
     if (!errors.isEmpty()){
         return  res.status(400).json({ errors: errors.array()})
     }
-    const {name, email, password} = req.body
+    const {name, email, password, type} = req.body
 
     try {
         // @check if user exists !
@@ -50,7 +50,8 @@ router.post('/', [
             name,
             email,
             password,
-            avatar
+            avatar,
+            type
         })
 
         // @encrypt password with bcryptjs
