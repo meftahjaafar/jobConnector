@@ -26,10 +26,14 @@ const companySchema = new Schema({
         required: true,
         unique:true
     },
-    createddate: {
+    created_date: {
       type: Date,
       required: true
-    }
+    },
+    hr_recruiter:{
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+  }
   })
 
 
