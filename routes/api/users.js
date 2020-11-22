@@ -79,7 +79,7 @@ router.post('/', [
     
     } catch (error) {
         console.error(error.message)
-        res.staus(500).send('Server Error @register route')
+        res.staus(500).send('Server Error')
     }
 })
 

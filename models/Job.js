@@ -10,7 +10,17 @@ const jobSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "company",
   },
+  companyname: {
+    type: String
+  },
+  hr_recruiter: {
+    type: String
+  },
   type: {
+    type: String,
+    required: true,
+  },
+  jobtitle: {
     type: String,
     required: true,
   },
@@ -30,7 +40,7 @@ const jobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  begindate: {
+  startdate: {
     type: Date,
     required: true,
   },
@@ -42,15 +52,21 @@ const jobSchema = new Schema({
     default: true,
     required: true,
   },
-  aplieddby: [
+  appliedby: [
     {
       user: {
        type: Schema.Types.ObjectId,
-       ref: "user" 
+       ref: "users" 
       },
-      createddate: {
+      applied_date: {
         type: Date,
-        default: Date.now,
+        default: Date.now
+      },
+      name: {
+        type: String
+      },
+      email: {
+        type: String
       }
     }
   ]
