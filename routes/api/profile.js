@@ -6,6 +6,7 @@ const config = require('config')
 const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Profile = require("../../models/Profile");
+const Activity = require("../../models/Activity");
 
 // @route GET api/profile/me
 // @desc get current user profile
@@ -63,7 +64,7 @@ router.post(
     } = req.body;
 
     // @Build Profile Object
-
+  
     const profileFields = {};
     profileFields.user = req.user.id;
     if (company) profileFields.company = company;
@@ -77,7 +78,6 @@ router.post(
     }
 
     //Build Social Media Object
-
     profileFields.social = {};
 
     if (youtube) profileFields.social.youtube = youtube;
@@ -85,6 +85,10 @@ router.post(
     if (facebook) profileFields.social.facebook = facebook;
     if (linkedin) profileFields.social.linkedin = linkedin;
     if (instagram) profileFields.social.instagram = instagram;
+
+        // @Build Activity Object
+        const activityFields = {};
+        activityFields.user = req.user.id;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -97,9 +101,11 @@ router.post(
         );
         return res.json(profile);
       }
-      // @Create new Profile
+      // @Create new Profile & new Activity (History Account)
+      const activity = new Activity(activityFields);
       profile = new Profile(profileFields);
       await profile.save();
+      await activity.save();
       res.json(profile);
     } catch (error) {
       console.error(error.message);
