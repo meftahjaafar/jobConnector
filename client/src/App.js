@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { Provider } from 'react-redux';
+import store from './store';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
@@ -7,6 +9,7 @@ import Register from "./components/auth/Register";
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <Fragment>
         <div id="bg">
@@ -24,6 +27,7 @@ function App() {
         </div>
       </Fragment>
     </Router>
+    </Provider>
   );
 }
 
