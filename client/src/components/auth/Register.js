@@ -1,35 +1,45 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert';
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
+import PropTypes from "prop-types";
+import Select from "react-select";
 
-
-const Register = ({ setAlert }) => {
-  const [formData, setformData] = useState({
+const Register = ({ setAlert, register }) => {
+  const initialState = {
     name: "",
     email: "",
     password: "",
     password2: "",
-  });
-
-  const [items] = useState([
-    { label: "Job Seeker", value: "jobSeeker" },
-    { label: "HR Recruiter", value: "hrRecruiter" },
-  ]);
-
-  const [type, setType] = React.useState("");
+  };
+  const options = [
+    { value: "jobSeeker", label: "Job Seeker" },
+    { value: "hrRecruiter", label: "HR Recruiter" },
+  ];
+  const [formData, setformData] = useState(initialState);
+  const [role, setRole] = useState({ selectedOption: null });
   const { name, email, password, password2 } = formData;
-
+  const { selectedOption } = role;
   const onChange = (e) =>
     setformData({ ...formData, [e.target.name]: e.target.value });
 
+  const handleChange = (selectedOption) => {
+    setRole({ selectedOption });
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('passwords do not match!', 'danger');
+      setAlert("passwords do not match!", "danger");
     } else {
-      console.log("Success!");
+      const type= selectedOption.value;
+      const newUser = {
+        name,
+        email,
+        password,
+        type
+      };
+      register(newUser);
     }
   };
   return (
@@ -73,22 +83,17 @@ const Register = ({ setAlert }) => {
                       onChange={(e) => onChange(e)}
                     />
                   </div>
+                  <div className="form-group">
+                    <h6 className="widget-title font-weight-700 text-uppercase">
+                      Choose Account Type
+                    </h6>
 
-                  <h6 className="widget-title font-weight-700 text-uppercase">
-                    Choose Account Type
-                  </h6>
-
-                  <select
-                    name="type"
-                    value={type}
-                    onChange={(e) => setType(e.currentTarget.value)}
-                  >
-                    {items.map(({ label, value }) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
+                    <Select
+                      value={selectedOption}
+                      onChange={handleChange}
+                      options={options}
+                    />
+                  </div>
 
                   <div className="form-group">
                     <input
@@ -138,7 +143,8 @@ const Register = ({ setAlert }) => {
 };
 
 Register.propTypes = {
-  setAlert : PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
