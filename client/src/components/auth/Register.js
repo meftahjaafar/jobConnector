@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import Select from "react-select";
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const initialState = {
     name: "",
     email: "",
@@ -42,6 +42,10 @@ const Register = ({ setAlert, register }) => {
       register(newUser);
     }
   };
+
+  if(isAuthenticated){
+    return <Redirect to='dashboard' />
+  }
   return (
     <Fragment>
       <div className="container">
@@ -144,7 +148,10 @@ const Register = ({ setAlert, register }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired
-};
-
-export default connect(null, { setAlert, register })(Register);
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
+}
+const mapStateToProps = state =>({
+  isAuthenticated: state.auth.isAuthenticated
+});
+export default connect(mapStateToProps, { setAlert, register })(Register);
