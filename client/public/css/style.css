@@ -2630,6 +2630,31 @@ blockquote:before {
 		margin: 5px 0 15px 15px;
 	}
 }
+
+/*---------------------------------------------------------------
+14. SOCIAL MEDIA INPUT
+---------------------------------------------------------------*/
+.my-2 {
+    margin: 2rem 0;
+  }
+ 
+
+  
+  .form i.fa-twitter {
+    color: #4b4b4b;
+  }
+  .form .social-input i.fa-facebook {
+    color: #3b5998;
+  }
+  .form .social-input i.fa-instagram {
+    color: #3f729b;
+  }
+  .form .social-input i.fa-youtube {
+    color: #c4302b;
+  }
+  .form .social-input i.fa-linkedin {
+    color: #0077b5;
+  }
 /*---------------------------------------------------------------
 14. HEADER (top part of page)
 ---------------------------------------------------------------*/
