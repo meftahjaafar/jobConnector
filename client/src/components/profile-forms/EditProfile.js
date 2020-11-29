@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Alert from "../layout/Alert";
+
 
 const initialState = {
   company: "",
@@ -313,7 +315,7 @@ const EditProfile = ({
                     </div>
                   </Fragment>
                 )}
-
+                <Alert />
                 <div className="extra-nav">
                   <div className="extra-cell">
                     <button type="submit" className="site-button">
