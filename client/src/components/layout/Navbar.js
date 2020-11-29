@@ -19,7 +19,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         id="navbarNavDropdown"
       >
         <ul className="nav navbar-nav">
-          <li className="active">
+          <li>
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -65,7 +65,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             <Link to="/">Pages</Link>
           </li>
           <li>
-            <Link to="/"> Blog </Link>
+            <Link to="/dashboard"> Dashboard </Link>
           </li>
         </ul>
       </div>

@@ -3,6 +3,7 @@ import React, { Fragment, useEffect } from "react";
 // Redux
 import  setAuthToken  from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
+import { getCurrentProfile } from "./actions/profile"
 import { Provider } from "react-redux";
 import store from "./store";
 //Compnents
@@ -23,6 +24,7 @@ function App() {
           setAuthToken(localStorage.token);
         }
         store.dispatch(loadUser());
+        store.dispatch(getCurrentProfile ())
   }, []);
 
   return (
