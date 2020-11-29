@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { createProfile } from "../../actions/profile";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -18,7 +19,7 @@ const initialState = {
   instagram: "",
 };
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState(initialState);
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
@@ -39,6 +40,11 @@ const CreateProfile = (props) => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    const onSubmit = e => {
+      e.preventDefault();
+      createProfile(formData, history);
+    };
 
   return (
     <Fragment>
@@ -71,7 +77,7 @@ const CreateProfile = (props) => {
                 your profile stand out
               </p>
               <small>* = required field</small>
-              <form autoComplete="off">
+              <form autoComplete="off" onSubmit={onSubmit}>
                 <div className="form-group">
                   <label>Professional title*</label>
                   <input
@@ -301,6 +307,8 @@ const CreateProfile = (props) => {
   );
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+};
 
-export default CreateProfile;
+export default connect(null, { createProfile })(withRouter(CreateProfile));
