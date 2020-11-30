@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Moment from "react-moment";
+import { deleteEducation } from "../../actions/profile";
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
   const educations = education.map((educ) => (
     <li>
-      <Link to={`education/${educ._id}`}>
+      <Link to="/dashboard">
         <div className="d-flex m-b30">
           <div className="job-post-company">
             <span>
@@ -45,20 +46,35 @@ const Education = ({ education }) => {
             <span className="text-black">{educ.description}</span>
           </div>
         </div>
-        <span className="post-like fa fa-heart-o"></span>
+        <div className="post-like fa fa-pencil"></div>
+        <div
+          className="post-trash fa fa-trash"
+          onClick={() => deleteEducation(educ._id)}
+        ></div>
       </Link>
     </li>
   ));
   return (
     <div>
-      <h3 className="widget-title  text-uppercase">Education Credentials</h3>
-      <ul className="post-job-bx">{educations}</ul>
+      {education.length > 0 ? (
+        <Fragment>
+          <h3 className="widget-title  text-uppercase">
+            Education Credentials
+          </h3>
+          <ul className="post-job-bx">{educations}</ul>
+        </Fragment>
+      ) : (
+        <h5 className="widget-title">
+         You dont have Education Field Yet.
+        </h5>
+      )}
     </div>
   );
 };
 
 Education.propTypes = {
   education: PropTypes.array.isRequired,
+  deleteEducation: PropTypes.func.isRequired
 };
 
-export default Education;
+export default connect(null, { deleteEducation })(Education);

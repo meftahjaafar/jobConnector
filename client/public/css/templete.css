@@ -793,6 +793,24 @@
 	background-color: #2e55fa;
 	color: #ffffff;
 }
+
+.post-trash{
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	border: 1px solid #2e55fa;
+	line-height: 30px;
+	text-align: center;
+	color: #2e55fa;
+	position: absolute;
+	top: 70px;
+	right: 25px;
+}
+.post-trash:hover{
+	background-color: #FF2A2A;
+	border: 1px solid #FF2A2A;
+	color: #ffffff;
+}
 /* Candidates Box */
 .candidates-are-sys{
 	background-color:#fff;

@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Moment from "react-moment";
+import { deleteExperience } from "../../actions/profile";
 
-const Experience = ({ experience }) => {
+
+const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
-    <li>
-      <Link to={`experience/${exp._id}`}>
+    <Link to="/dashboard">
+      <li>
         <div className="d-flex m-b30">
           <div className="job-post-company">
             <span>
@@ -52,22 +54,35 @@ const Experience = ({ experience }) => {
             <span className="text-black font-18">{exp.description}</span>
           </div>
         </div>
-        <div className="post-like fa fa-heart-o"></div>
-
-
-  </Link>
-    </li>
+        <div className="post-like fa fa-pencil"></div>
+        <div
+          className="post-trash fa fa-trash"
+          onClick={() => deleteExperience(exp._id)}
+        ></div>
+      </li>
+    </Link>
   ));
   return (
     <div>
-      <h3 className="widget-title  text-uppercase">Experiences Credentials</h3>
-      <ul className="post-job-bx">{experiences}</ul>
+      {experience.length > 0 ? (
+        <Fragment>
+          <h3 className="widget-title  text-uppercase">
+            Experiences Credentials
+          </h3>
+          <ul className="post-job-bx">{experiences}</ul>
+        </Fragment>
+      ) : (
+        <h5 className="widget-title">
+         You dont have Experience Field Yet.
+        </h5>
+      )}
     </div>
   );
 };
 
 Experience.propTypes = {
   experience: PropTypes.array.isRequired,
+  deleteExperience: PropTypes.func.isRequired,
 };
 
-export default Experience;
+export default connect(null, { deleteExperience })(Experience);
