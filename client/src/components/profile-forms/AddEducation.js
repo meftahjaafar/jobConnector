@@ -15,17 +15,25 @@ const initialState = {
   description: "",
 };
 
-const AddEducation= ({ addEducation, history }) => {
+const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState(initialState);
-  const { school, degree, fieldofstudy, from, to, current, description } = formData;
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description,
+  } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-      e.preventDefault()
-      addEducation(formData, history)
-  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addEducation(formData, history);
+  };
   return (
     <Fragment>
       <div className="page-content bg-white">
@@ -53,7 +61,8 @@ const AddEducation= ({ addEducation, history }) => {
             <div className="container">
               <h1 className="large text-primary">Add Your Education</h1>
               <p className="text-black font-20">
-              <i class="fa fa-graduation-cap"></i> Add any school, bootcamp, etc that you have attended
+                <i class="fa fa-graduation-cap"></i> Add any school, bootcamp,
+                etc that you have attended
               </p>
               <small>* = required field</small>
               <form autoComplete="off" onSubmit={onSubmit}>
@@ -108,29 +117,30 @@ const AddEducation= ({ addEducation, history }) => {
                   />
                 </div>
                 <div className="form-inline checkbox">
-                <label className="form-text">
-                  <input
-                    type="checkbox"
-                    name="current"
-                    className="form-control"
-                    checked={current}
-                    value={current}
-                    onChange={() => {
-                      setFormData({ ...formData, current: !current });
-                    }}
-                  />
-                  If it's Your current School or Institute, Check me ?</label>
+                  <label className="form-text">
+                    <input
+                      type="checkbox"
+                      name="current"
+                      className="form-control"
+                      checked={current}
+                      value={current}
+                      onChange={() => {
+                        setFormData({ ...formData, current: !current });
+                      }}
+                    />
+                    If it's Your current School or Institute, Check me ?
+                  </label>
                 </div>
                 <div className="form-group">
-                  <label>{current ? 'Disabled' : 'To'}</label>
-                    <input
-                      type="date"
-                      name="to"
-                      className="form-control"
-                      value={to}
-                      onChange={(e) => onChange(e)}
-                      disabled={current}
-                    />
+                  <label>{current ? "Disabled" : "To"}</label>
+                  <input
+                    type="date"
+                    name="to"
+                    className="form-control"
+                    value={to}
+                    onChange={(e) => onChange(e)}
+                    disabled={current}
+                  />
                 </div>
                 <div className="form-group">
                   <label>Program Description</label>

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Moment from "react-moment";
@@ -17,7 +17,7 @@ const Education = ({ education }) => {
           <div className="job-post-info">
             <h4>{educ.degree}</h4>
             <ul>
-            <li>
+              <li>
                 <i className="fa fa-briefcase"></i> {educ.school}
               </li>
               <li>
@@ -33,7 +33,7 @@ const Education = ({ education }) => {
                 </li>
               ) : (
                 <li>
-                  <i className="fa fa-clock-o"></i> 
+                  <i className="fa fa-clock-o"></i>
                   <Moment format="YYYY/MM">{educ.to}</Moment>
                 </li>
               )}
@@ -42,9 +42,8 @@ const Education = ({ education }) => {
         </div>
         <div className="d-flex">
           <div className="form-text">
-              <span className="text-black">{educ.description}</span>
+            <span className="text-black">{educ.description}</span>
           </div>
-
         </div>
         <span className="post-like fa fa-heart-o"></span>
       </Link>

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Moment from "react-moment";
@@ -17,18 +17,18 @@ const Experience = ({ experience }) => {
           <div className="job-post-info">
             <h4>{exp.title}</h4>
             <ul>
-            <li>
+              <li>
                 <i className="fa fa-briefcase"></i> {exp.company}
               </li>
               <li>
                 <i className="fa fa-map-marker"></i> {exp.location}
               </li>
-              {exp.current  ? (
+              {exp.current ? (
                 <li>
                   <i className="fa fa-bookmark-o"></i> Full Time
                 </li>
               ) : (
-              <li>{}</li>
+                <li>{}</li>
               )}
               <li>
                 <i className="fa fa-clock-o"></i>
@@ -40,7 +40,7 @@ const Experience = ({ experience }) => {
                 </li>
               ) : (
                 <li>
-                  <i className="fa fa-clock-o"></i> 
+                  <i className="fa fa-clock-o"></i>
                   <Moment format="YYYY/MM">{exp.to}</Moment>
                 </li>
               )}
@@ -49,19 +49,20 @@ const Experience = ({ experience }) => {
         </div>
         <div className="d-flex">
           <div className="form-text">
-              <span className="text-black font-18">{exp.description}</span>
+            <span className="text-black font-18">{exp.description}</span>
           </div>
-
         </div>
-        <span className="post-like fa fa-heart-o"></span>
-      </Link>
+        <div className="post-like fa fa-heart-o"></div>
+
+
+  </Link>
     </li>
   ));
   return (
-<div>
+    <div>
       <h3 className="widget-title  text-uppercase">Experiences Credentials</h3>
       <ul className="post-job-bx">{experiences}</ul>
-      </div>
+    </div>
   );
 };
 

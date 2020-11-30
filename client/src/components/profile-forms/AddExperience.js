@@ -22,10 +22,10 @@ const AddExperience = ({ addExperience, history }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-      e.preventDefault()
-      addExperience(formData, history)
-  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addExperience(formData, history);
+  };
   return (
     <Fragment>
       <div className="page-content bg-white">
@@ -53,7 +53,7 @@ const AddExperience = ({ addExperience, history }) => {
             <div className="container">
               <h1 className="large text-primary">Add an Experience</h1>
               <p className="text-black font-20">
-              <i class="fa fa-address-card"></i> Add any positions that you
+                <i class="fa fa-address-card"></i> Add any positions that you
                 have had in the past
               </p>
               <small>* = required field</small>
@@ -112,29 +112,30 @@ const AddExperience = ({ addExperience, history }) => {
                   />
                 </div>
                 <div className="form-inline checkbox">
-                <label className="form-text">
-                  <input
-                    type="checkbox"
-                    name="current"
-                    className="form-control"
-                    checked={current}
-                    value={current}
-                    onChange={() => {
-                      setFormData({ ...formData, current: !current });
-                    }}
-                  />
-                  If it's Your current Job, Check me ?</label>
+                  <label className="form-text">
+                    <input
+                      type="checkbox"
+                      name="current"
+                      className="form-control"
+                      checked={current}
+                      value={current}
+                      onChange={() => {
+                        setFormData({ ...formData, current: !current });
+                      }}
+                    />
+                    If it's Your current Job, Check me ?
+                  </label>
                 </div>
                 <div className="form-group">
-                  <label>{current ? 'Disabled' : 'To'}</label>
-                    <input
-                      type="date"
-                      name="to"
-                      className="form-control"
-                      value={to}
-                      onChange={(e) => onChange(e)}
-                      disabled={current}
-                    />
+                  <label>{current ? "Disabled" : "To"}</label>
+                  <input
+                    type="date"
+                    name="to"
+                    className="form-control"
+                    value={to}
+                    onChange={(e) => onChange(e)}
+                    disabled={current}
+                  />
                 </div>
                 <div className="form-group">
                   <label>Job Description</label>
