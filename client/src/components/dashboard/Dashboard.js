@@ -23,6 +23,7 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
+
     <Fragment>
       <h1 className="text-black font-24">
         {" "}

@@ -7,6 +7,9 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
+  GET_PROFILES,
+  GET_REPOS,
+  NO_REPOS,
 } from "./types";
 
 // Get current users profiles
@@ -65,6 +68,56 @@ export const createProfile = (formData, history, edit = false) => async (
   }
 };
 
+// get all profiles
+export const getProfiles = () => async (dispatch) => {
+
+  try {
+    const res = await axios.get("/api/profile");
+
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// get profile by ID
+export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// get Github Repos
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/github/${username}`);
+
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: NO_REPOS,
+    });
+  }
+};
 // add experience
 export const addExperience = (formData, history) => async (dispatch) => {
   try {
@@ -175,4 +228,3 @@ export const deleteAccount = () => async (dispatch) => {
     }
   }
 };
-

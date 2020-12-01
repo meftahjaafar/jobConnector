@@ -119,7 +119,7 @@ router.post(
 // @desc  Get all profile
 // @access public
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     let profiles = await Profile.find().populate("user", ["name", "avatar"]);
     res.json(profiles);

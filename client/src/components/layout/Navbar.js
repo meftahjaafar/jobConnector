@@ -27,6 +27,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
               For Candidates <i className="fa fa-chevron-down"></i>
             </Link>
             <ul className="sub-menu">
+            <li>
+                <Link to="/profiles" className="dez-page">
+                  Profiles
+                </Link>
+              </li>
               <li>
                 <Link to="/" className="dez-page">
                   Browse Job
