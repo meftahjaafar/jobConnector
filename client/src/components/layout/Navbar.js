@@ -90,6 +90,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </div>
   );
   return (
+    <div id="bg">
+<div class="page-wraper">
     <div className="page-wraper">
       <header className="site-header mo-left header fullwidth">
         <div className="sticky-header main-bar-wraper navbar-expand-lg">
@@ -107,6 +109,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           </div>
         </div>
       </header>
+      </div></div>
     </div>
   );
 };

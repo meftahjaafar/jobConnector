@@ -20,7 +20,7 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
-  return loading && profile === null ? (
+  return (loading && profile === null ? (
     <Spinner />
   ) : (
 
@@ -35,12 +35,14 @@ const Dashboard = ({
           <DashboardActions />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
+          <div className="pagination-bx m-t30">
           <button
             className="site-button red outline"
             onClick={() => deleteAccount()}
           >
             <i className="fa fa-user-times"></i> Delete Account
           </button>
+          </div>
         </Fragment>
       ) : (
         <Fragment>
@@ -53,8 +55,9 @@ const Dashboard = ({
         </Fragment>
       )}
     </Fragment>
-  );
-};
+  ));
+  
+  };
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,

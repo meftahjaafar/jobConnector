@@ -70,7 +70,6 @@ export const createProfile = (formData, history, edit = false) => async (
 
 // get all profiles
 export const getProfiles = () => async (dispatch) => {
-
   try {
     const res = await axios.get("/api/profile");
 
@@ -175,7 +174,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 // delete experience
 export const deleteExperience = (id) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/profile/experience/${id}`);
+   const res= await axios.delete(`/api/profile/experience/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,

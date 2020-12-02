@@ -1,16 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
+import Moment from "react-moment";
 
-const ProfileExperience = props => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const ProfileExperience = ({
+  experience: { company, title, location, current, to, from, description },
+}) => (
+  <div>
+    <h3 className="text-dark">{company}</h3>
+    <p>
+      <Moment format="YYYY/MM">{from}</Moment> -{" "}
+      {to ? <Moment format="YYYY/MM">{to}</Moment> : "Now"}
+    </p>
+    <p>
+      <strong>Position: </strong> {title}
+    </p>
+    <p>
+      <strong>Location: </strong> {location}
+    </p>
+    <p>
+      <strong>Description: </strong> {description}
+    </p>
+  </div>
+);
 
 ProfileExperience.propTypes = {
+  experience: PropTypes.object.isRequired,
+};
 
-}
-
-export default ProfileExperience
+export default ProfileExperience;

@@ -133,7 +133,7 @@ router.get("/", auth, async (req, res) => {
 // @desc  Get Profile By user ID
 // @access public
 
-router.get("/user/:user_id", async (req, res) => {
+router.get("/user/:user_id",auth, async (req, res) => {
   let userID = req.params.user_id;
   try {
     const profile = await Profile.findOne({ user: userID }).populate("user", [

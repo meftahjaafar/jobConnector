@@ -9,6 +9,7 @@ const Landing = ({ isAuthenticated }) => {
   }
   return (
     <Fragment>
+      <div class="page-content bg-white">
       <div
         className="dez-bnr-inr dez-bnr-inr-md overlay-black-dark"
         style={{
@@ -34,6 +35,7 @@ const Landing = ({ isAuthenticated }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </Fragment>
   );
