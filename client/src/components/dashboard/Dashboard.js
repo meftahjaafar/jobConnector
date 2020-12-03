@@ -8,6 +8,7 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 import Education from "./Education";
 import Experience from "./Experience";
 import DashboardActions from "./DashboardActions";
+import DashboardHr from "./DashboardHr";
 import Spinner from "../layout/Spinner";
 
 const Dashboard = ({
@@ -20,10 +21,9 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
-  return (loading && profile === null ? (
+  return loading && profile === null ? (
     <Spinner />
   ) : (
-
     <Fragment>
       <h1 className="text-black font-24">
         {" "}
@@ -32,16 +32,16 @@ const Dashboard = ({
 
       {profile !== null ? (
         <Fragment>
-          <DashboardActions />
+          {user.type === "jobSeeker" ? <DashboardActions /> : <DashboardHr />}
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
           <div className="pagination-bx m-t30">
-          <button
-            className="site-button red outline"
-            onClick={() => deleteAccount()}
-          >
-            <i className="fa fa-user-times"></i> Delete Account
-          </button>
+            <button
+              className="site-button red outline"
+              onClick={() => deleteAccount()}
+            >
+              <i className="fa fa-user-times"></i> Delete Account
+            </button>
           </div>
         </Fragment>
       ) : (
@@ -55,9 +55,8 @@ const Dashboard = ({
         </Fragment>
       )}
     </Fragment>
-  ));
-  
-  };
+  );
+};
 
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
@@ -71,4 +70,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);

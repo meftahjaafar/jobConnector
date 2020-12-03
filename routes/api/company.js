@@ -43,7 +43,9 @@ router.post(
 
     try {
       let user = await User.findById(req.user.id);
-      let company = await Company.findOne({ hr_recruiter: req.user.id });
+      //let company = await Company.findOne({ hr_recruiter: req.user.id });
+      let company = await Company.findOne({ name: name});
+
       if(user){
         companyFields.logo = gravatar.url(user.email, ({
              s:'200',
@@ -116,4 +118,6 @@ router.get('/', auth, async(req, res) => {
 
     }
 })
+
+
 module.exports = router;

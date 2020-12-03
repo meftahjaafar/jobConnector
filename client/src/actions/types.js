@@ -30,3 +30,20 @@ export const DELETE_POST = 'DELETE_POST';
 export const ADD_POST = 'ADD_POST';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
+//@_company
+export const ADD_COMPANY = 'ADD_COMPANY';
+export const COMPANY_ERROR = 'COMPANY_ERROR';
+export const GET_COMPANY = 'GET_COMPANY';
+export const GET_COMPANIES = 'GET_COMPANIES';
+export const UPDATE_COMPANY = 'UPDATE_COMPANY';
+
+//@_job
+export const ADD_JOB = 'ADD_JOB';
+export const JOB_ERROR = 'JOB_ERROR';
+export const GET_JOB = 'GET_JOB';
+export const GET_JOBS = 'GET_JOBS';
+export const UPDATE_JOB = 'UPDATE_JOB';
+export const APPLY_JOB = 'APPLY_JOB';
+export const DELETE_JOB = 'DELETE_JOB';
+export const CLEAR_JOB = 'CLEAR_JOB';

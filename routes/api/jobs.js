@@ -7,6 +7,8 @@ const User = require("../../models/User");
 const Company = require("../../models/Company");
 const Job = require("../../models/Job");
 const Activity = require("../../models/Activity");
+
+
 // @route POST api/jobs
 // @desc  Add Job post (added by HR Recruiter)
 // @access private

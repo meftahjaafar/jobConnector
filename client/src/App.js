@@ -18,6 +18,7 @@ import CreateProfile from "./components/profile-forms/CreateProfile";
 import EditProfile from "./components/profile-forms/EditProfile";
 import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
+import AddCompany from "./components/profile-forms/AddCompany";
 import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
 import Posts from "./components/posts/Posts";
@@ -30,53 +31,60 @@ function App() {
       setAuthToken(localStorage.token);
     }
     store.dispatch(loadUser());
-    store.dispatch(getCurrentProfile())
+    store.dispatch(getCurrentProfile());
   }, []);
 
   return (
     <Provider store={store}>
- 
-        <div classname="page-wraper">
-          <Router>
-            <Fragment>
-              <Navbar  />
-              <Route exact path="/" component={Landing} />
-              <section className="container">
-                <Alert />
-                <Switch>
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/register" component={Register} />
-                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  <PrivateRoute exact path="/profile/user/:id" component={Profile} />
-                  <PrivateRoute exact path="/profiles" component={Profiles} />
-                  <PrivateRoute exact path="/posts" component={Posts} />
-                  <PrivateRoute exact path="/posts/post/:id" component={Post} />
-                  <PrivateRoute
-                    exact
-                    path="/create-profile"
-                    component={CreateProfile}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/edit-profile"
-                    component={EditProfile}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/add-experience"
-                    component={AddExperience}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/add-education"
-                    component={AddEducation}
-                  />
-                </Switch>
-              </section>
-            </Fragment>
-          </Router>
-        </div>
-
+      <div classname="page-wraper">
+        <Router>
+          <Fragment>
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <section className="container">
+              <Alert />
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute
+                  exact
+                  path="/profile/user/:id"
+                  component={Profile}
+                />
+                <PrivateRoute exact path="/profiles" component={Profiles} />
+                <PrivateRoute exact path="/posts" component={Posts} />
+                <PrivateRoute exact path="/posts/post/:id" component={Post} />
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/edit-profile"
+                  component={EditProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/add-experience"
+                  component={AddExperience}
+                />
+                <PrivateRoute
+                  exact
+                  path="/add-education"
+                  component={AddEducation}
+                />
+                <PrivateRoute
+                  exact
+                  path="/add-company"
+                  component={AddCompany}
+                />
+              </Switch>
+            </section>
+          </Fragment>
+        </Router>
+      </div>
     </Provider>
   );
 }

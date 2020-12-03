@@ -83,13 +83,13 @@ const EditProfile = ({
         >
           <div className="container">
             <div className="dez-bnr-inr-entry">
-              <h1 className="text-white">Create Profile</h1>
+              <h1 className="text-white">Update Profile</h1>
               <div className="breadcrumb-row">
                 <ul className="list-inline">
                   <li>
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
-                  <li>Create Pofile</li>
+                  <li>Update Pofile</li>
                 </ul>
               </div>
             </div>
@@ -99,7 +99,7 @@ const EditProfile = ({
         <div className="content-block">
           <div className="section-full bg-white submit-resume content-inner-2">
             <div className="container">
-              <h1 className="large text-primary">Create Your Profile</h1>
+              <h1 className="large text-primary">Update Your Profile</h1>
               <p className="text-black font-20">
                 <i className="fa fa-user" /> Let's get some information to make
                 your profile stand out
