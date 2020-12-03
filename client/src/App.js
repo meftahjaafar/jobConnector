@@ -19,6 +19,7 @@ import EditProfile from "./components/profile-forms/EditProfile";
 import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
 import AddCompany from "./components/profile-forms/AddCompany";
+import AddJob from "./components/profile-forms/AddJob";
 import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
 import Posts from "./components/posts/Posts";
@@ -79,6 +80,11 @@ function App() {
                   exact
                   path="/add-company"
                   component={AddCompany}
+                />
+                <PrivateRoute
+                  exact
+                  path="/add-job"
+                  component={AddJob}
                 />
               </Switch>
             </section>
