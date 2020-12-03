@@ -10,8 +10,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 //     getProfiles();
 //   }, [getProfiles]);
 
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
