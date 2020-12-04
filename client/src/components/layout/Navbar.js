@@ -29,22 +29,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             <ul className="sub-menu">
             <li>
                 <Link to="/profiles" className="dez-page">
-                  Profiles
+                  Browse Profiles
                 </Link>
               </li>
               <li>
                 <Link to="/posts" className="dez-page">
-                  Posts
+                  Browse Posts
                 </Link>
               </li>
               <li>
-                <Link to="/" className="dez-page">
+                <Link to="/jobs" className="dez-page">
                   Browse Job
                 </Link>
               </li>
               <li>
-                <Link to="/" className="dez-page">
-                  companies
+                <Link to="/companies" className="dez-page">
+                  Browse Companies
                 </Link>
               </li>
               <li>
@@ -60,13 +60,23 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             </Link>
             <ul className="sub-menu">
               <li>
-                <Link to="/" className="dez-page">
+                <Link to="/profiles" className="dez-page">
                   Browse Candidates
                 </Link>
               </li>
               <li>
-                <Link to="/" className="dez-page">
-                  Submit Resume
+                <Link to="/posts" className="dez-page">
+                  Browse Posts
+                </Link>
+              </li>
+              <li>
+                <Link to="/jobs" className="dez-page">
+                  Browse Jobs
+                </Link>
+              </li>
+              <li>
+                <Link to="/companies" className="dez-page">
+                  Browse Companies
                 </Link>
               </li>
             </ul>
@@ -82,7 +92,93 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </div>
     </Fragment>
   );
-
+  const hrLinks = (
+    <Fragment>
+      <div className="extra-nav">
+        <div className="extra-cell" onClick={logout}>
+          <Link to="/" className="site-button">
+            <i className="fa fa-sign-out"></i> Logout
+          </Link>
+        </div>
+      </div>
+      <div
+        className="header-nav navbar-collapse collapse justify-content-start"
+        id="navbarNavDropdown"
+      >
+        <ul className="nav navbar-nav">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/">
+              For Candidates <i className="fa fa-chevron-down"></i>
+            </Link>
+            <ul className="sub-menu">
+            <li>
+                <Link to="/profiles" className="dez-page">
+                  Browse Profiles
+                </Link>
+              </li>
+              <li>
+                <Link to="/posts" className="dez-page">
+                  Browse Posts
+                </Link>
+              </li>
+              <li>
+                <Link to="/jobs" className="dez-page">
+                  Browse Job
+                </Link>
+              </li>
+              <li>
+                <Link to="/companies" className="dez-page">
+                  Browse Companies
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="dez-page">
+                  Job Detail
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/">
+              For Employers <i className="fa fa-chevron-down"></i>
+            </Link>
+            <ul className="sub-menu">
+              <li>
+                <Link to="/profiles" className="dez-page">
+                  Browse Candidates
+                </Link>
+              </li>
+              <li>
+                <Link to="/posts" className="dez-page">
+                  Browse Posts
+                </Link>
+              </li>
+              <li>
+                <Link to="/jobs" className="dez-page">
+                  Browse Jobs
+                </Link>
+              </li>
+              <li>
+                <Link to="/companies" className="dez-page">
+                  Browse Companies
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/">Pages</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">
+             Dashboard </Link>
+          </li>
+        </ul>
+      </div>
+    </Fragment>
+  );
   const guestLinks = (
     <div className="extra-nav">
       <div className="extra-cell">

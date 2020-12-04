@@ -83,9 +83,9 @@ export const addJob = (formData, history) => async (dispatch) => {
 };
 
 //Apply Job
-export const applyJob = (job_id, formData, history) => async (dispatch) => {
+export const applyJob = (job_id, history) => async (dispatch) => {
   try {
-    const res = await axios.put(`/api/jobs/applyjob/${job_id}`, formData);
+    const res = await axios.put(`/api/jobs/applyjob/${job_id}`);
 
     dispatch({
       type: APPLY_JOB,

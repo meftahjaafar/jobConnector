@@ -188,7 +188,7 @@ router.put("/job/activate/:id", auth, async (req, res) => {
 // @access private
 router.get("/job/:id", auth, async (req, res) => {
   try {
-    let jobpost = await Job.find({ _id: req.params.id }).select("-aplieddby");
+    let jobpost = await Job.find({ _id: req.params.id });
     if (!jobpost) {
       return res.status(404).json({ msg: "Job Post Not Found !" });
     }
