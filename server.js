@@ -1,5 +1,6 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const path = require('path');
 
 
 const connectDB = require('./config/db')
@@ -11,9 +12,7 @@ app.listen(PORT, () =>{
     console.log(`Server runnig @ http://localhost:${PORT}`)
 } )
 
-app.get('/', (req, res) => {
-    res.send('Hello Developers !')
-})
+
 
 // @connect Database
 connectDB()
@@ -44,3 +43,14 @@ app.use('/api/followers', require('./routes/api/follower'))
 app.use('/api/activities', require('./routes/api/activity'))
 //@ posts shared
 app.use('/api/sharedposts', require('./routes/api/sharedPost'))
+
+
+//@ Serve Static assets in production
+if (process.env.NODE_ENV === 'production'){
+//Set Static Folder
+app.use(express.static('client/build'))
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+})
+}

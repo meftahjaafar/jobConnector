@@ -1,0 +1,6 @@
+{
+    "MONGO_URI": "mongodb+srv://meftah:meftah123456@cluster0.0boga.mongodb.net/test",
+    "SECRET_KEY": "dZ6hM5oB3yY0mW2a",
+    "GITHUB_CLIENT":"2bf09243ee39f8d0aac3",
+    "GITHUB_SECRET":"1c87da2ac0524edc47bc0c1726c77efc670e05f3"
+}
