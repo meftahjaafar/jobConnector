@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "portal job and social media for developers",
   "main": "server.js",
+  "engine":{
+     "node":"12.18.3",
+     "npm":"6.14.6"
+  },
   "scripts": {
     "start": "echo \"node server",
     "server": "nodemon server",

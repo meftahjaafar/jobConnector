@@ -5,14 +5,6 @@ const path = require('path');
 
 const connectDB = require('./config/db')
 
-// @runnig server
-const PORT = process.env.PORT || 4000
-
-app.listen(PORT, () =>{
-    console.log(`Server runnig @ http://localhost:${PORT}`)
-} )
-
-
 
 // @connect Database
 connectDB()
@@ -52,6 +44,13 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
   
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+      res.sendFile(path.resolve(__dirname, './client', 'build', 'index.html'));
     });
   }
+
+  // @runnig server
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, () =>{
+    console.log(`Server runnig @ http://localhost:${PORT}`)
+} )
